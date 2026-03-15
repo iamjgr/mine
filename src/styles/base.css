@@ -1,0 +1,94 @@
+/* ─────────────────────────────────────────────────────────
+   base.css  —  CSS variables, reset, root element styles
+───────────────────────────────────────────────────────── */
+
+:root {
+  --bg:          #0a0a0f;
+  --surface:     rgba(255, 255, 255, 0.04);
+  --cyan:        #00f5ff;
+  --green:       #39ff14;
+  --purple:      #bf00ff;
+  --text:        #ffffff;
+  --text-sec:    #a0a0b0;
+  --border:      rgba(0, 245, 255, 0.15);
+  --card-shadow: 0 0 24px rgba(0, 245, 255, 0.06),
+                 inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --transition:  all 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+
+  --font-mono: 'JetBrains Mono', monospace;
+  --font-sans: 'Inter', sans-serif;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  cursor: none;
+  overflow-x: hidden;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+/* Dot-matrix background texture */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(
+    circle,
+    rgba(0, 245, 255, 0.12) 1px,
+    transparent 1px
+  );
+  background-size: 32px 32px;
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar            { width: 5px; }
+::-webkit-scrollbar-track      { background: var(--bg); }
+::-webkit-scrollbar-thumb      { background: rgba(0, 245, 255, 0.25); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover{ background: rgba(0, 245, 255, 0.5); }
+
+/* Selection */
+::selection {
+  background: rgba(0, 245, 255, 0.2);
+  color: var(--cyan);
+}
+
+/* Remove default link + button styles */
+a { color: inherit; text-decoration: none; }
+button { background: none; border: none; cursor: pointer; color: inherit; }
+img { display: block; max-width: 100%; }
+
+/* Utility: visually hide but keep accessible */
+.sr-only {
+  position: absolute; width: 1px; height: 1px;
+  padding: 0; margin: -1px; overflow: hidden;
+  clip: rect(0,0,0,0); white-space: nowrap; border: 0;
+}
+
+/* Utility: GSAP hidden state (opacity only — transform set by GSAP) */
+.gsap-hidden { opacity: 0; }
+
+/* prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

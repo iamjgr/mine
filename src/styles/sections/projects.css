@@ -1,0 +1,204 @@
+/* ─────────────────────────────────────────────────────────
+   projects.css
+───────────────────────────────────────────────────────── */
+
+/* Course grid */
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.25rem;
+  align-items: start;
+  grid-auto-rows: auto;
+}
+
+/* Course card */
+.course-card {
+  position: relative;
+  padding: 1.5rem;
+  cursor: pointer;
+  transition: var(--transition);
+  height: 152px;
+  opacity: 1;
+  transform: translateY(0);
+  display: flex;
+  flex-direction: column;
+  /* left accent bar injected via --accent-color set inline in JS */
+}
+.course-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+  background: var(--accent-color, var(--cyan));
+  box-shadow: 0 0 10px var(--accent-color, var(--cyan));
+}
+.course-card.dimmed {
+  opacity: 1;
+  transform: none;
+}
+
+.course-card.active {
+  height: auto;
+  border-color: var(--accent-color, var(--cyan));
+  box-shadow:
+    0 0 34px color-mix(in srgb, var(--accent-color, var(--cyan)) 20%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.course-card:hover,
+.course-card:focus-visible {
+  opacity: 1;
+  border-color: var(--accent-color, var(--cyan));
+  box-shadow:
+    0 0 28px color-mix(in srgb, var(--accent-color, var(--cyan)) 18%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+.course-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+.course-code {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+}
+.chevron-icon {
+  transition: transform 0.35s cubic-bezier(0.23, 1, 0.32, 1);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.chevron-icon.open { transform: rotate(180deg); }
+
+.course-name {
+  font-family: var(--font-mono);
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  line-height: 1.35;
+  min-height: 2.4em;
+}
+.course-desc {
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  color: var(--text-sec);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  min-height: 2.8em;
+}
+
+/* Activities container (height animated by GSAP) */
+.course-activities {
+  overflow: hidden;
+  height: 0;
+  margin-top: 0.6rem;
+}
+.activities-row {
+  display: flex;
+  gap: 0.85rem;
+  overflow-x: auto;
+  padding: 1rem 0 0.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,245,255,0.2) transparent;
+}
+.activities-row::-webkit-scrollbar { height: 4px; }
+.activities-row::-webkit-scrollbar-thumb { background: rgba(0,245,255,0.2); border-radius:2px; }
+
+/* Activity card */
+.activity-card {
+  min-width: 185px;
+  max-width: 185px;
+  padding: 0.85rem;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: var(--transition);
+}
+.activity-card:hover { transform: translateY(-3px); }
+
+.activity-thumb {
+  width: 100%;
+  height: 105px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  background: rgba(0, 245, 255, 0.04);
+  margin-bottom: 0.65rem;
+}
+.activity-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.activity-card:hover .activity-thumb img { transform: scale(1.06); }
+.activity-thumb-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 245, 255, 0.14);
+  opacity: 0;
+  transition: opacity 0.3s;
+  border-radius: 8px;
+}
+.activity-card:hover .activity-thumb-overlay { opacity: 1; }
+.activity-thumb-placeholder {
+  width: 100%; height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: linear-gradient(
+    135deg,
+    rgba(0,245,255,0.05),
+    rgba(191,0,255,0.05)
+  );
+}
+
+.activity-title {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.35;
+  margin-bottom: 0.3rem;
+}
+.activity-teaser {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  color: var(--text-sec);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+.activity-cta {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+}
+
+@media (max-width: 1024px) {
+  .courses-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+  .courses-grid { grid-template-columns: 1fr; }
+
+  /* Stack activities vertically in a 2-col grid — no horizontal scroll */
+  .activities-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    overflow-x: visible;
+    overflow-y: visible;
+    gap: 0.75rem;
+    padding: 0.75rem 0 0.5rem;
+  }
+  .activity-card {
+    min-width: 0;
+    max-width: none;
+    width: 100%;
+  }
+}

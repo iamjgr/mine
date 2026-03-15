@@ -1,0 +1,11 @@
+/* ─────────────────────────────────────────────────────────
+   main.css  —  imports all partials (order matters)
+───────────────────────────────────────────────────────── */
+
+@import './base.css';
+@import './animations.css';
+@import './layout.css';
+@import './components.css';
+@import './sections/hero.css';
+@import './sections/about.css';
+@import './sections/projects.css';

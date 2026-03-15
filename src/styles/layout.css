@@ -1,0 +1,145 @@
+/* ─────────────────────────────────────────────────────────
+   layout.css  —  grid helpers, section spacing, nav
+───────────────────────────────────────────────────────── */
+
+/* ── Sections ──────────────────────────────────────────── */
+section {
+  position: relative;
+  z-index: 1;
+  padding: 7rem 1.5rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+.section-header .reveal-line {
+  max-width: 200px;
+  margin: 0.75rem auto 0;
+}
+
+/* ── Navbar ────────────────────────────────────────────── */
+#navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  transition: background 0.4s ease,
+              backdrop-filter 0.4s ease,
+              box-shadow 0.4s ease;
+}
+#navbar.scrolled {
+  background: rgba(10, 10, 15, 0.85);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  box-shadow: 0 1px 0 rgba(0, 245, 255, 0.1);
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.nav-logo {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--cyan);
+  text-shadow: 0 0 8px rgba(0, 245, 255, 0.5);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+}
+.nav-link {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-sec);
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s;
+  letter-spacing: 0.07em;
+  text-decoration: none;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 1px;
+  background: var(--cyan);
+  box-shadow: 0 0 6px var(--cyan);
+  transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+.nav-link:hover { color: var(--cyan); }
+.nav-link:hover::after { width: 100%; }
+.nav-link.active { color: var(--cyan); }
+.nav-link.active::before {
+  content: '▸';
+  position: absolute;
+  left: -14px; top: 50%;
+  transform: translateY(-50%);
+  color: var(--cyan);
+  font-size: 0.6rem;
+  text-shadow: 0 0 6px var(--cyan);
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 4px;
+}
+.hamburger span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--text-sec);
+  transition: var(--transition);
+  transform-origin: center;
+}
+.hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg);  background: var(--cyan); }
+.hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); background: var(--cyan); }
+
+/* Mobile drawer */
+#mobile-menu {
+  position: fixed;
+  top: 0; right: 0;
+  width: min(85vw, 300px);
+  height: 100vh;
+  background: rgba(10, 10, 15, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  z-index: 999;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  border-left: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 2rem;
+}
+#mobile-menu.open { transform: translateX(0); }
+/* Close button inside drawer hidden — the hamburger already morphs into
+   an ✕ in the navbar, so showing a second ✕ inside the drawer is redundant. */
+#mobile-menu-close {
+  display: none;
+}
+.mobile-nav-link {
+  font-size: 1.1rem;
+  letter-spacing: 0.1em;
+}
+
+@media (max-width: 768px) {
+  .hamburger  { display: flex; }
+  .nav-links  { display: none; }
+  section     { padding: 5rem 1.25rem; }
+}

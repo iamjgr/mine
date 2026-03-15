@@ -1,0 +1,54 @@
+/* ─────────────────────────────────────────────────────────
+   about.css
+───────────────────────────────────────────────────────── */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+/* Left column */
+.about-left  { display: flex; flex-direction: column; gap: 0; }
+.about-tag   { margin-bottom: 0.75rem; }
+.about-heading { margin-bottom: 0.5rem; }
+.about-line  { margin-bottom: 2rem; }
+
+.about-bio {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.about-bio p {
+  font-family: var(--font-sans);
+  color: var(--text-sec);
+  line-height: 1.78;
+  font-size: 0.91rem;
+}
+
+.skills-tag { margin-bottom: 0.75rem; }
+.skills-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+/* Right column */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (max-width: 1024px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  .about-right { order: -1; }
+}
