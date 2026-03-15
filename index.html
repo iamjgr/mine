@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <meta name="description" content="CS Student &amp; Developer Portfolio" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Devicons -->
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css"
+  />
+
+  <!-- Styles entry point -->
+  <script type="module" crossorigin src="/mine/assets/index-CMrz2MQK.js"></script>
+  <link rel="stylesheet" crossorigin href="/mine/assets/index-DDlRN1Y2.css">
+</head>
+
+<body>
+
+  <!-- ── PAGE LOADER ──────────────────────────────────── -->
+  <div id="loader-bar-wrap"><div id="loader-bar"></div></div>
+  <div id="page-loader">
+    <p id="loader-text">Initializing portfolio<span class="blink">_</span></p>
+    <p id="loader-sub">[ Loading assets... ]</p>
+  </div>
+
+  <!-- ── CUSTOM CURSOR ────────────────────────────────── -->
+  <div id="cursor-dot"  aria-hidden="true"></div>
+  <div id="cursor-ring" aria-hidden="true"></div>
+
+  <!-- ── BACKGROUND CANVAS ────────────────────────────── -->
+  <canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+  <!-- ── NAVBAR ───────────────────────────────────────── -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#hero" id="nav-logo" class="nav-logo" aria-label="Home"></a>
+      <div class="nav-links" id="nav-links">
+        <a href="#hero"     class="nav-link" data-section="hero">home</a>
+        <a href="#about"    class="nav-link" data-section="about">about</a>
+        <a href="#projects" class="nav-link" data-section="projects">projects</a>
+      </div>
+      <button id="hamburger" class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-menu" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button id="mobile-menu-close" aria-label="Close menu">✕</button>
+    <a href="#hero"     class="nav-link mobile-nav-link" data-section="hero">home</a>
+    <a href="#about"    class="nav-link mobile-nav-link" data-section="about">about</a>
+    <a href="#projects" class="nav-link mobile-nav-link" data-section="projects">projects</a>
+  </div>
+
+  <!-- ── HERO ─────────────────────────────────────────── -->
+  <section id="hero" aria-labelledby="hero-name">
+    <span class="hero-bracket bracket-tl" aria-hidden="true">[</span>
+    <span class="hero-bracket bracket-tr" aria-hidden="true">]</span>
+    <span class="hero-bracket bracket-bl" aria-hidden="true">&lt;</span>
+    <span class="hero-bracket bracket-br" aria-hidden="true">&gt;</span>
+
+    <div class="hero-content">
+      <p id="hero-greeting" class="hero-greeting" aria-live="polite">&nbsp;</p>
+      <h1 id="hero-name" class="hero-name flicker"></h1>
+      <p id="hero-title" class="hero-title"></p>
+      <div id="hero-cta" class="hero-cta">
+        <a id="cta-primary" class="btn-primary" href="#projects">
+          <span class="btn-label"></span>
+          <span class="btn-arrow">→</span>
+        </a>
+        <a id="cta-secondary" class="btn-ghost" href="#about">
+          <span class="btn-label"></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── ABOUT ─────────────────────────────────────────── -->
+  <section id="about" aria-labelledby="about-heading">
+    <div class="about-grid">
+
+      <!-- Left -->
+      <div class="about-left">
+        <p class="section-tag about-tag">&lt;about_me /&gt;</p>
+        <h2 id="about-heading" class="section-heading about-heading">Who I Am</h2>
+        <div class="reveal-line about-line"></div>
+        <div id="about-bio" class="about-bio"></div>
+        <p class="section-tag skills-tag">// tech_stack</p>
+        <div id="skills-container" class="skills-container"></div>
+        <div class="terminal-box" id="terminal-box">
+          <div class="terminal-topbar">
+            <span class="t-dot t-red"></span>
+            <span class="t-dot t-yellow"></span>
+            <span class="t-dot t-green"></span>
+            <span class="terminal-title">bash — terminal</span>
+          </div>
+          <div class="terminal-body" id="terminal-body"></div>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div class="about-right" id="about-visual">
+        <div class="avatar-frame" id="avatar-frame">
+          <div class="avatar-hex" id="avatar-hex"></div>
+          <div class="avatar-glow-ring" aria-hidden="true"></div>
+          <!-- Orbit icons injected by about.js -->
+          <div class="orbit-icons" id="orbit-icons" aria-hidden="true"></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ──────────────────────────────────────── -->
+  <section id="projects" aria-labelledby="projects-heading">
+    <div class="section-header">
+      <p class="section-tag projects-tag">&lt;projects /&gt;</p>
+      <h2 id="projects-heading" class="section-heading">My Work</h2>
+      <div class="reveal-line projects-line"></div>
+    </div>
+    <div id="courses-grid" class="courses-grid"></div>
+  </section>
+
+  <!-- ── ACTIVITY DETAIL MODAL ─────────────────────────── -->
+  <div id="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div id="modal-container">
+      <button id="modal-close" aria-label="Close modal">✕</button>
+      <p id="modal-breadcrumb" class="modal-breadcrumb"></p>
+      <h2 id="modal-title" class="modal-title"></h2>
+      <div class="reveal-line modal-line"></div>
+      <p id="modal-description" class="modal-description"></p>
+      <div id="modal-gallery" class="modal-gallery"></div>
+    </div>
+  </div>
+
+  <!-- ── IMAGE LIGHTBOX ─────────────────────────────────── -->
+  <div id="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image viewer">
+    <button id="lightbox-close" aria-label="Close image viewer">✕</button>
+    <img id="lightbox-img" src="" alt="" />
+    <p id="lightbox-caption"></p>
+  </div>
+
+  <!-- ── SCRIPTS ───────────────────────────────────────── -->
+</body>
+</html>
