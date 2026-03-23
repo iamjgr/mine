@@ -8,7 +8,9 @@
 
 import { gsap } from 'gsap';
 
-const PLACEHOLDER = '/images/placeholder.svg';
+const BASE         = import.meta.env.BASE_URL.replace(/\/$/, '');
+const PLACEHOLDER  = BASE + '/images/placeholder.svg';
+const resolveImg   = src => BASE + src;
 
 /**
  * Creates a single <img> element with lazy loading and fallback.
@@ -18,7 +20,7 @@ function createImageEl(src, caption) {
   wrapper.className = 'gallery-slide';
 
   const img = document.createElement('img');
-  img.src     = src;
+  img.src     = resolveImg(src);
   img.alt     = caption || '';
   img.loading = 'lazy';
   img.style.cursor = 'zoom-in';

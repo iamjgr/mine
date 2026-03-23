@@ -24,7 +24,7 @@ export default {
   hero: {
     name: 'MICROSOFT',
     logoText: '<Microsoft/>',
-    title: 'Full Stack Developer · CS Student · Builder of Things',
+    title: 'CS - Memerzzz - Anti-Cyberbullying',
     greeting: 'Hello, World.',
     ctaLabel: 'View My Work',
     ctaTarget: '#projects',
@@ -35,8 +35,8 @@ export default {
   about: {
     avatar: '/images/avatar.jpg',
     bio: [
-      "I'm a passionate Computer Science student with a love for building things that live on the internet. I thrive at the intersection of elegant design and robust engineering, crafting experiences that are both beautiful and performant.",
-      "When I'm not writing code, you'll find me exploring new frameworks, contributing to open-source projects, or diving deep into papers on distributed systems and machine learning. I believe great software is built iteratively — with curiosity, attention to detail, and a relentless drive to improve."
+      "I'm a Computer Science student and the builder behind Memerzzz, focused on creating projects that fight cyberbullying and make online spaces safer.",
+      "I blend practical engineering with thoughtful design to build tools that educate, protect, and support healthier digital communities."
     ],
     skills: [
       { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
@@ -52,7 +52,7 @@ export default {
       { name: 'CSS',        icon: 'devicon-css3-plain colored'       }
     ],
     terminal: [
-      { label: 'user',         value: 'YourName'           },
+      { label: 'user',         value: 'Josh'           },
       { label: 'location',     value: 'Philippines'         },
       { label: 'status',       value: 'Building cool stuff' },
       { label: 'patience',     value: 5.3, type: 'bar'     },
@@ -112,10 +112,22 @@ export default {
             }
           ]
         },
-
-         {
+            {
           id: 'act4',
-          title: 'Activity 4: Gradient Text Effects',
+          title: 'Activity 4: Wrap Text',
+          teaser: 'Mastering text wrapping techniques to create dynamic layouts in Photoshop.',
+          description:
+            'This activity focuses on the "Wrap Text" feature in Adobe Photoshop, which allows text to flow around or within objects. The exercise involves creating a composition where text is wrapped around a central image or shape, demonstrating control over text flow, spacing, and alignment. This technique is essential for creating engaging designs that integrate typography with visual elements.',
+          images: [
+            {
+              src: '/images/projects/wrap text.png',
+              caption: 'Wrap Text – dynamic layout with flowing typography'
+            }
+          ]
+        },
+         {
+          id: 'act5',
+          title: 'Activity 5: Gradient Text Effects',
           teaser: 'Crafting bold typographic designs enhanced with gradient fills and effects.',
           description:
             'This activity explores expressive text design in Photoshop using gradient overlays, layer styles, and blending options. Each piece uses a distinct word or phrase as the visual anchor, styled with custom gradient fills, outer glows, and drop shadows to create eye-catching typographic artwork. The activity strengthens understanding of layer style panels and color theory in design.',
@@ -134,9 +146,22 @@ export default {
             }
           ]
         },
+          {
+          id: 'act6',
+          title: 'Activity 6: Text Around Composition',
+          teaser: 'Designing a layout where text wraps naturally around the subject to improve visual flow.',
+          description:
+            'This activity focuses on building a TextAround composition in Photoshop by combining selection tools, masking, and paragraph formatting controls. The goal is to make typography follow the subject silhouette while preserving readability and balance. It reinforces spacing, hierarchy, and layout decisions that make poster-style designs feel intentional and polished.',
+          images: [
             {
-          id: 'act5',
-          title: 'Activity 5: Circular Clipping Mask',
+              src: '/images/projects/TextAround.png',
+              caption: 'TextAround composition – wrapped typography around the main subject'
+            }
+          ]
+        },
+            {
+          id: 'act7',
+          title: 'Activity 7: Circular Clipping Mask',
           teaser: 'Applying circular clipping masks to create clean, focused image frames.',
           description:
             'This activity demonstrates the use of circular shapes as clipping masks in Photoshop. Images are cropped and confined within perfect circle boundaries, producing portrait-style or icon-like frames. The exercise reinforces the clipping mask workflow and introduces concepts such as smart objects, transform controls, and arranging masked layers within a cohesive composition.',
@@ -149,8 +174,8 @@ export default {
         },
 
          {
-          id: 'act6',
-          title: 'Activity 6: Layer Blend Modes',
+          id: 'act8',
+          title: 'Activity 8: Layer Blend Modes',
           teaser: 'Experimenting with Photoshop blend modes to achieve different visual atmospheres.',
           description:
             'This activity explores Photoshop\'s layer blending modes by applying the same base image under multiple blend settings. Each variation — Color Dodge, Multiply, Overlay, Screen, and Soft Light — demonstrates how blend modes interact with underlying layers to produce distinct lighting, contrast, and color effects. The exercise builds a practical understanding of non-destructive editing and mood-driven compositing.',

@@ -175,14 +175,15 @@ function _buildActivityCard(activity, course) {
   const card = document.createElement('div');
   card.className = 'glass-card activity-card';
 
+  const BASE      = import.meta.env.BASE_URL.replace(/\/$/, '');
   const hasImages = activity.images && activity.images.length > 0;
-  const thumbSrc  = hasImages ? activity.images[0].src : null;
+  const thumbSrc  = hasImages ? BASE + activity.images[0].src : null;
 
   card.innerHTML = `
     <div class="activity-thumb">
       ${thumbSrc
         ? `<img src="${thumbSrc}" alt="${activity.title}" loading="lazy"
-               onerror="this.src='/images/placeholder.svg';" />`
+               onerror="this.src='${BASE}/images/placeholder.svg';" />`
         : `<div class="activity-thumb-placeholder">💻</div>`}
       <div class="activity-thumb-overlay" aria-hidden="true"></div>
     </div>

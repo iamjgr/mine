@@ -8,6 +8,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const BASE = import.meta.env.BASE_URL.replace(/\/$/, '');
+const resolveAsset = src => {
+  if (!src) return src;
+  if (/^(https?:)?\/\//.test(src) || src.startsWith('data:')) return src;
+  return src.startsWith('/') ? BASE + src : src;
+};
+
 const ORBIT_ICONS = [
   { icon: 'devicon-javascript-plain colored', duration: '14s', angle: '0deg',   r: '125px' },
   { icon: 'devicon-python-plain colored',     duration: '16s', angle: '72deg',  r: '125px' },
@@ -49,7 +56,7 @@ function _renderAvatar(src) {
 
   if (src) {
     const img = document.createElement('img');
-    img.src     = src;
+    img.src     = resolveAsset(src);
     img.alt     = 'Profile photo';
     img.loading = 'lazy';
     img.onerror = () => {
