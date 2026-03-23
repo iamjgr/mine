@@ -56,7 +56,7 @@ export default {
       { label: 'location',     value: 'Philippines'         },
       { label: 'status',       value: 'Building cool stuff' },
       { label: 'patience',     value: 5.3, type: 'bar'     },
-      { label: 'mood',         value: 'in flow state 🎧'   }
+      { label: 'mood',         value: 'tam'   }
     ]
   },
 
