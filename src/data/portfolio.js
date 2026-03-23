@@ -146,22 +146,9 @@ export default {
             }
           ]
         },
-          {
+            {
           id: 'act6',
-          title: 'Activity 6: Text Around Composition',
-          teaser: 'Designing a layout where text wraps naturally around the subject to improve visual flow.',
-          description:
-            'This activity focuses on building a TextAround composition in Photoshop by combining selection tools, masking, and paragraph formatting controls. The goal is to make typography follow the subject silhouette while preserving readability and balance. It reinforces spacing, hierarchy, and layout decisions that make poster-style designs feel intentional and polished.',
-          images: [
-            {
-              src: '/images/projects/TextAround.png',
-              caption: 'TextAround composition – wrapped typography around the main subject'
-            }
-          ]
-        },
-            {
-          id: 'act7',
-          title: 'Activity 7: Circular Clipping Mask',
+          title: 'Activity 6: Circular Clipping Mask',
           teaser: 'Applying circular clipping masks to create clean, focused image frames.',
           description:
             'This activity demonstrates the use of circular shapes as clipping masks in Photoshop. Images are cropped and confined within perfect circle boundaries, producing portrait-style or icon-like frames. The exercise reinforces the clipping mask workflow and introduces concepts such as smart objects, transform controls, and arranging masked layers within a cohesive composition.',
@@ -174,8 +161,8 @@ export default {
         },
 
          {
-          id: 'act8',
-          title: 'Activity 8: Layer Blend Modes',
+          id: 'act7',
+          title: 'Activity 7: Layer Blend Modes',
           teaser: 'Experimenting with Photoshop blend modes to achieve different visual atmospheres.',
           description:
             'This activity explores Photoshop\'s layer blending modes by applying the same base image under multiple blend settings. Each variation — Color Dodge, Multiply, Overlay, Screen, and Soft Light — demonstrates how blend modes interact with underlying layers to produce distinct lighting, contrast, and color effects. The exercise builds a practical understanding of non-destructive editing and mood-driven compositing.',
