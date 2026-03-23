@@ -35,8 +35,8 @@ export default {
   about: {
     avatar: '/images/avatar.jpg',
     bio: [
-      "I'm a Computer Science student and the builder behind Memerzzz, focused on creating projects that fight cyberbullying and make online spaces safer.",
-      "I blend practical engineering with thoughtful design to build tools that educate, protect, and support healthier digital communities."
+      "I'm a Computer Science student at Palawan State University - Narra Campus who enjoys building things that solve real-life problems. I'm passionate about turning ideas into practical systems that can actually help people.",
+      "Outside of tech, I like sharing memes on Facebook and acting a little weird just for fun-keeping things light and unpredictable. Most people only see that side of me... not knowing I'm actually the son of a Mafia Boss. 😈"
     ],
     skills: [
       { name: 'JavaScript', icon: 'devicon-javascript-plain colored' },
@@ -63,7 +63,7 @@ export default {
   projects: [
     {
       id: 'cs101',
-      courseCode: 'CS 101',
+      courseCode: 'CS E2/L',
       courseName: 'CS Elective 2',
       description: 'Foundations of Adobe Photoshop',
       accentColor: '#00ffe1',
